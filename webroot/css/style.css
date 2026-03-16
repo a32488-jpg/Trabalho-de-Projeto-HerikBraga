@@ -1,0 +1,571 @@
+/* ============================================================
+   BLOG ONLINE - CSS
+   Design moderno e limpo
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --dark:    #0f0f1a;
+    --accent:  #e63946;
+    --light:   #f8f7f4;
+    --mid:     #6b7280;
+    --border:  #e5e7eb;
+    --white:   #ffffff;
+    --card-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--light);
+    color: #1a1a2e;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+nav {
+    background: var(--dark);
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.nav-brand a {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.nav-brand a span { color: var(--accent); }
+
+.search-form {
+    display: flex;
+    flex: 1;
+    max-width: 360px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.search-form input {
+    flex: 1;
+    padding: 0.45rem 1rem;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    font-family: 'Source Sans 3', sans-serif;
+    outline: none;
+}
+
+.search-form input::placeholder { color: rgba(255,255,255,0.4); }
+
+.search-form button {
+    padding: 0.45rem 1rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.search-form button:hover { background: #c1121f; }
+
+.nav-links {
+    display: flex;
+    gap: 0.2rem;
+    margin-left: auto;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+}
+
+.nav-links a:hover {
+    color: white;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-links a:last-child {
+    background: var(--accent);
+    color: white;
+}
+
+.nav-links a:last-child:hover { background: #c1121f; }
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
+
+/* ============================================================
+   FLASH MESSAGES
+   ============================================================ */
+.message {
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.message.success {
+    background: #d1fae5;
+    color: #065f46;
+    border-left: 4px solid #10b981;
+}
+
+.message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border-left: 4px solid var(--accent);
+}
+
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--dark);
+    letter-spacing: -0.5px;
+}
+
+/* ============================================================
+   BOTÃO
+   ============================================================ */
+.btn, a.btn {
+    background: var(--dark);
+    color: white;
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn:hover, a.btn:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+}
+
+/* ============================================================
+   ARTICLE CARDS
+   ============================================================ */
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.article-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.8rem 2rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+
+.category-badge {
+    display: inline-block;
+    background: #fff0f1;
+    color: var(--accent);
+    border: 1px solid #fecdd3;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 0.7rem;
+}
+
+.article-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.article-card h2 a {
+    color: var(--dark);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.article-card h2 a:hover { color: var(--accent); }
+
+.article-excerpt {
+    color: var(--mid);
+    font-size: 0.97rem;
+    margin-bottom: 1rem;
+    line-height: 1.65;
+}
+
+.article-meta {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    font-size: 0.82rem;
+    color: var(--mid);
+    font-family: 'Source Sans 3', sans-serif;
+    border-top: 1px solid var(--border);
+    padding-top: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.article-meta strong { color: var(--dark); }
+
+.article-meta a {
+    margin-left: auto;
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: opacity 0.2s;
+}
+
+.article-meta a:hover { opacity: 0.75; }
+
+.article-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+}
+
+.article-actions a,
+.article-actions button,
+.article-actions input[type=submit] {
+    font-size: 0.8rem;
+    color: var(--mid);
+    background: none;
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: all 0.2s;
+}
+
+.article-actions a:hover,
+.article-actions button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ============================================================
+   ARTIGO COMPLETO
+   ============================================================ */
+.article-full {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border);
+}
+
+.article-full h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin: 0.6rem 0 1rem;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+}
+
+.article-meta-full {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--mid);
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.8rem;
+}
+
+.article-body {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #2d2d3a;
+}
+
+/* ============================================================
+   COMENTÁRIOS
+   ============================================================ */
+.comments {
+    margin-top: 2.5rem;
+}
+
+.comments h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.comments h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    color: var(--dark);
+}
+
+.comment-card {
+    background: var(--white);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.3rem;
+    margin-bottom: 1rem;
+    border-radius: 0 8px 8px 0;
+    box-shadow: var(--card-shadow);
+}
+
+.comment-card strong { color: var(--dark); }
+
+.comment-date {
+    font-size: 0.78rem;
+    color: var(--mid);
+    margin-left: 0.7rem;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.comment-card p {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+/* ============================================================
+   FORMULÁRIOS
+   ============================================================ */
+.form-page {
+    max-width: 440px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border);
+}
+
+.form-page h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.input { margin-bottom: 1.1rem; }
+
+.input label {
+    display: block;
+    font-size: 0.83rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.input input,
+.input textarea,
+.input select {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.97rem;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--dark);
+    background: #fafafa;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.input input:focus,
+.input textarea:focus,
+.input select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+    background: white;
+}
+
+.input textarea { resize: vertical; min-height: 120px; }
+
+button[type=submit] {
+    background: var(--dark);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.97rem;
+    font-weight: 700;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+
+button[type=submit]:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+}
+
+.form-page p {
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    color: var(--mid);
+    text-align: center;
+}
+
+.form-page p a {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* ============================================================
+   TABELA (Categorias)
+   ============================================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border);
+}
+
+th {
+    background: var(--dark);
+    color: rgba(255,255,255,0.85);
+    padding: 0.9rem 1.2rem;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+td {
+    padding: 0.85rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.93rem;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+
+td a, td button {
+    color: var(--accent);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-right: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: opacity 0.2s;
+}
+
+td a:hover, td button:hover { opacity: 0.7; }
+
+/* ============================================================
+   BACK LINK
+   ============================================================ */
+.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--mid);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--accent); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--mid);
+    font-size: 0.83rem;
+    font-family: 'Source Sans 3', sans-serif;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    background: var(--white);
+}
+
+/* ============================================================
+   UTILITÁRIOS
+   ============================================================ */
+hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid var(--border);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
